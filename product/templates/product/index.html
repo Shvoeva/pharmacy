@@ -11,54 +11,59 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1 style="text-align:center;">Лекарства</h1>
+<div class="container">
+    <h1 style="text-align">
+        <a href="{% url 'purchase' %}">Покупки</a>
+    </h1>
+</div>
+<div class="container">
+    <h1 style="text-align:center;">Лекарства</h1>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                      <th>№</th>
-                      <th>Наименование</th>
-                      <th>Производитель</th>
-                      <th>Фармакологическая группа</th>
-                      <th>Лекарственная форма</th>
-                      <th>Дозировка</th>
-                      <th>Количество в упаковке</th>
-                      <th>Условия отпуска</th>
-                      <th>Описание</th>
-                      <th>Дата производства</th>
-                      <th>Срок годности</th>
-                      <th>Стоимость</th>
-                      <th>Количество</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Наименование</th>
+            <th>Производитель</th>
+            <th>Фармакологическая группа</th>
+            <th>Лекарственная форма</th>
+            <th>Дозировка</th>
+            <th>Количество в упаковке</th>
+            <th>Условия отпуска</th>
+            <th>Описание</th>
+            <th>Дата производства</th>
+            <th>Срок годности</th>
+            <th>Стоимость</th>
+            <th>Количество</th>
+        </tr>
+        </thead>
+        <tbody>
 
-                </tbody>
-            </table>
-    </div>
-    <div class="container">
-        <h1 style="text-align:center;">Нелекарственный товар</h1>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <h1 style="text-align:center;">Нелекарственный товар</h1>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                      <th>№</th>
-                      <th>Наименование</th>
-                      <th>Производитель</th>
-                      <th>Категория</th>
-                      <th>Количество в упаковке</th>
-                      <th>Дата производства</th>
-                      <th>Срок годности</th>
-                      <th>Срок гарантии</th>
-                      <th>Стоимость</th>
-                      <th>Количество</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Наименование</th>
+            <th>Производитель</th>
+            <th>Категория</th>
+            <th>Количество в упаковке</th>
+            <th>Дата производства</th>
+            <th>Срок годности</th>
+            <th>Срок гарантии</th>
+            <th>Стоимость</th>
+            <th>Количество</th>
+        </tr>
+        </thead>
+        <tbody>
 
-                </tbody>
-            </table>
-    </div>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

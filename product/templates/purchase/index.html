@@ -11,27 +11,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1 style="text-align:center;">Продажа</h1>
+<div class="container">
+    <h1 style="text-align">
+        <a href="{% url 'product' %}">Товары</a>
+    </h1>
+</div>
+<div class="container">
+    <h1 style="text-align:center;">Продажа</h1>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                      <th>№</th>
-                      <th>Дата и время</th>
-                      <th>Номер кассы</th>
-                      <th>ФИО фармацевта</th>
-                      <th>Общая сумма покупки</th>
-                      <th>Наименование товара</th>
-                      <th>Количество</th>
-                      <th>Стоимость товара</th>
-                      <th>Итоговая стоимость</th>
-                    </tr>
-                </thead>
-                <tbody>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Дата и время</th>
+            <th>Номер кассы</th>
+            <th>ФИО фармацевта</th>
+            <th>Общая сумма покупки</th>
+            <th>Наименование товара</th>
+            <th>Количество</th>
+            <th>Стоимость товара</th>
+            <th>Итоговая стоимость</th>
+        </tr>
+        </thead>
+        <tbody>
 
-                </tbody>
-            </table>
-    </div>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
