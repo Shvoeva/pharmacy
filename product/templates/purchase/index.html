@@ -71,6 +71,12 @@
                     <th>{{purchase_item.quantity}}</th>
                     <th>{{purchase_item.product.cost}}</th>
                     <th>{{purchase_item.amount}}</th>
+                    <th>
+                        <a href="{% url 'purchase-update' purchase_item.purchase.id %}">Редактировать продажу</a><br>
+                        <a href="{% url 'purchase-delete' purchase_item.purchase.id %}">Удалить продажу</a><br>
+                        <a href="{% url 'purchase-item-update' purchase_item.id %}">Редактировать элемент</a><br>
+                        <a href="{% url 'purchase-item-delete' purchase_item.id %}">Удалить элемент</a><br>
+                    </th>
                 </tr>
             {% endfor %}
         </tbody>

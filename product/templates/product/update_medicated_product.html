@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Изменение товара</title>
+    <title>Изменение лекарственного товара</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -19,12 +19,21 @@
     </h1>
 </div>
 <div class="container">
-    <h1>Форма по изменению товара</h1>
+    <h1>Форма по изменению лекарства</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.quantity }}<br>
-        {{ form.cost }}<br>
-        <button class="btn btn-success" type="submit">Изменить товар</button><br><br>
+        {{ form.name }}<br>
+        {{ form.manufacturer }}<br>
+        {{ form.formative_group }}<br>
+        {{ form.pharmaceutical_form }}<br>
+        {{ form.dosage }}<br>
+        {{ form.volume_in_package }}<br>
+        {{ form.sales_condition }}<br>
+        {{ form.description }}<br>
+        {{ form.production_date }}<br>
+        {{ form.shelf_life }}<br>
+        {{ form.product }}<br>
+        <button class="btn btn-success" type="submit">Изменить лекарство</button>
     </form>
 </div>
 </body>

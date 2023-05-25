@@ -79,6 +79,12 @@
                     <th>{{medicated_product.shelf_life}}</th>
                     <th>{{medicated_product.product.cost}}</th>
                     <th>{{medicated_product.product.quantity}}</th>
+                    <th>
+                        <a href="{% url 'product-update' medicated_product.product.id %}">Редактировать товар</a><br>
+                        <a href="{% url 'product-delete' medicated_product.product.id %}">Удалить товар</a><br>
+                        <a href="{% url 'medicated-product-update' medicated_product.product.id %}">Редактировать лекарство</a><br>
+                        <a href="{% url 'medicated-product-delete' medicated_product.product.id %}">Удалить лекарство</a><br>
+                    </th>
                 </tr>
             {% endfor %}
         </tbody>

@@ -70,6 +70,12 @@
                 <th>{{non_medicated_product.guarantee}}</th>
                 <th>{{non_medicated_product.product.cost}}</th>
                 <th>{{non_medicated_product.product.quantity}}</th>
+                <th>
+                    <a href="{% url 'product-update' non_medicated_product.product.id %}">Редактировать товар</a><br>
+                    <a href="{% url 'product-delete' non_medicated_product.product.id %}">Удалить товар</a><br>
+                    <a href="{% url 'non-medicated-product-update' non_medicated_product.product.id %}">Редактировать нелекарственный товар</a><br>
+                    <a href="{% url 'non-medicated-product-delete' non_medicated_product.product.id %}">Удалить нелекарственный товар</a><br>
+                </th>
             </tr>
         {% endfor %}
         </tbody>
