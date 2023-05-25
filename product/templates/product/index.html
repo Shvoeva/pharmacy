@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product</title>
+    <title>Лекарственные товары</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -13,8 +13,34 @@
 <body>
 <div class="container">
     <h1 style="text-align">
+        <a href="{% url 'product2' %}">Нелекарственные товары</a>
         <a href="{% url 'purchase' %}">Покупки</a>
     </h1>
+</div>
+<div class="container">
+    <h1>Форма по добавлению товара</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ pform.quantity }}<br>
+        {{ pform.cost }}<br>
+        <button class="btn btn-success" type="submit">Добавить товар</button><br><br>
+    </form>
+    <h1>Форма по добавлению лекарства</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ mform.name }}<br>
+        {{ mform.manufacturer }}<br>
+        {{ mform.formative_group }}<br>
+        {{ mform.pharmaceutical_form }}<br>
+        {{ mform.dosage }}<br>
+        {{ mform.volume_in_package }}<br>
+        {{ mform.sales_condition }}<br>
+        {{ mform.description }}<br>
+        {{ mform.production_date }}<br>
+        {{ mform.shelf_life }}<br>
+        {{ mform.product }}<br>
+        <button class="btn btn-success" type="submit">Добавить лекарство</button>
+    </form>
 </div>
 <div class="container">
     <h1 style="text-align:center;">Лекарства</h1>
@@ -55,42 +81,6 @@
                     <th>{{medicated_product.product.quantity}}</th>
                 </tr>
             {% endfor %}
-        </tbody>
-    </table>
-</div>
-<div class="container">
-    <h1 style="text-align:center;">Нелекарственный товар</h1>
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>№</th>
-            <th>Наименование</th>
-            <th>Производитель</th>
-            <th>Категория</th>
-            <th>Количество в упаковке</th>
-            <th>Дата производства</th>
-            <th>Срок годности</th>
-            <th>Срок гарантии</th>
-            <th>Стоимость</th>
-            <th>Количество</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for non_medicated_product in non_medicated_products %}
-            <tr>
-                <th>{{non_medicated_product.product.id}}</th>
-                <th>{{non_medicated_product.name}}</th>
-                <th>{{non_medicated_product.manufacturer}}</th>
-                <th>{{non_medicated_product.category}}</th>
-                <th>{{non_medicated_product.volume_in_package}}</th>
-                <th>{{non_medicated_product.production_date}}</th>
-                <th>{{non_medicated_product.shelf_life}}</th>
-                <th>{{non_medicated_product.guarantee}}</th>
-                <th>{{non_medicated_product.product.cost}}</th>
-                <th>{{non_medicated_product.product.quantity}}</th>
-            </tr>
-        {% endfor %}
         </tbody>
     </table>
 </div>

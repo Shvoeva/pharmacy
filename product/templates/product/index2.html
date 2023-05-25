@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Нелекарственные товары</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align">
+        <a href="{% url 'product' %}">Лекарственные товары</a>
+        <a href="{% url 'purchase' %}">Покупки</a>
+    </h1>
+</div>
+<div class="container">
+    <h1>Форма по добавлению товара</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ pform.quantity }}<br>
+        {{ pform.cost }}<br>
+        <button class="btn btn-success" type="submit">Добавить товар</button><br><br>
+    </form>
+    <h1>Форма по добавлению нелекарственного товара</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ nform.name }}<br>
+        {{ nform.manufacturer }}<br>
+        {{ nform.category }}<br>
+        {{ nform.volume_in_package }}<br>
+        {{ nform.production_date }}<br>
+        {{ nform.shelf_life }}<br>
+        {{ nform.guarantee }}<br>
+        {{ nform.product }}<br>
+        <button class="btn btn-success" type="submit">Добавить нелекарственный товар</button>
+    </form>
+</div>
+<div class="container">
+    <h1 style="text-align:center;">Нелекарственные товары</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Наименование</th>
+            <th>Производитель</th>
+            <th>Категория</th>
+            <th>Количество в упаковке</th>
+            <th>Дата производства</th>
+            <th>Срок годности</th>
+            <th>Срок гарантии</th>
+            <th>Стоимость</th>
+            <th>Количество</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for non_medicated_product in non_medicated_products %}
+            <tr>
+                <th>{{non_medicated_product.product.id}}</th>
+                <th>{{non_medicated_product.name}}</th>
+                <th>{{non_medicated_product.manufacturer}}</th>
+                <th>{{non_medicated_product.category}}</th>
+                <th>{{non_medicated_product.volume_in_package}}</th>
+                <th>{{non_medicated_product.production_date}}</th>
+                <th>{{non_medicated_product.shelf_life}}</th>
+                <th>{{non_medicated_product.guarantee}}</th>
+                <th>{{non_medicated_product.product.cost}}</th>
+                <th>{{non_medicated_product.product.quantity}}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
