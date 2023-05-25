@@ -12,10 +12,10 @@ class Medicated_product(models.Model):
     dosage = models.CharField('Дозировка', max_length=30) #+ед.измер
     volume_in_package = models.CharField('Количество в упаковке', max_length=15) #+ед.измер
     sales_condition = models.CharField('Условия отпуска', max_length=50)
-    description = models.CharField('Описание', max_length=100)
+    description = models.TextField('Описание')
     production_date = models.DateField('Дата производства', null=False)
     shelf_life = models.PositiveIntegerField('Срок годности')
-    product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, unique=True)
 
 class Non_medicated_product(models.Model):
     name = models.CharField('Наименование', max_length=50)
@@ -23,6 +23,6 @@ class Non_medicated_product(models.Model):
     category = models.CharField('Категория', max_length=50)
     volume_in_package = models.CharField('Количество в упаковке', max_length=15)  # +ед.измер
     production_date = models.DateField('Дата производства', null=False)
-    shelf_life = models.PositiveIntegerField('Срок годности', null=True)
-    guarantee = models.PositiveIntegerField('Срок гарантии', null=True)
-    product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True)
+    shelf_life = models.PositiveIntegerField('Срок годности', null=True, blank=999)
+    guarantee = models.PositiveIntegerField('Срок гарантии', null=True, blank=999)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, unique=True)

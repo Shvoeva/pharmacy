@@ -34,7 +34,24 @@
         </tr>
         </thead>
         <tbody>
-
+            {% for purchase_item in purchase_items %}
+                <tr>
+                    <th>{{purchase_item.purchase.id}}</th>
+                    <th>{{purchase_item.purchase.date_and_time}}</th>
+                    <th>{{purchase_item.purchase.till_number}}</th>
+                    <th>{{purchase_item.purchase.pharmacist}}</th>
+                    <th>{{purchase_item.purchase.amount}}</th>
+                    <th>{% if purchase_item.product.medicated_product.name %}
+                        {{purchase_item.product.medicated_product.name}}
+                        {% else %}
+                        {{purchase_item.product.non_medicated_product.name}}
+                        {% endif %}
+                    </th>
+                    <th>{{purchase_item.quantity}}</th>
+                    <th>{{purchase_item.product.cost}}</th>
+                    <th>{{purchase_item.amount}}</th>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

@@ -38,7 +38,23 @@
         </tr>
         </thead>
         <tbody>
-
+            {% for medicated_product in medicated_products %}
+                <tr>
+                    <th>{{medicated_product.product.id}}</th>
+                    <th>{{medicated_product.name}}</th>
+                    <th>{{medicated_product.manufacturer}}</th>
+                    <th>{{medicated_product.formative_group}}</th>
+                    <th>{{medicated_product.pharmaceutical_form}}</th>
+                    <th>{{medicated_product.dosage}}</th>
+                    <th>{{medicated_product.volume_in_package}}</th>
+                    <th>{{medicated_product.sales_condition}}</th>
+                    <th>{{medicated_product.description}}</th>
+                    <th>{{medicated_product.production_date}}</th>
+                    <th>{{medicated_product.shelf_life}}</th>
+                    <th>{{medicated_product.product.cost}}</th>
+                    <th>{{medicated_product.product.quantity}}</th>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
@@ -61,7 +77,20 @@
         </tr>
         </thead>
         <tbody>
-
+        {% for non_medicated_product in non_medicated_products %}
+            <tr>
+                <th>{{non_medicated_product.product.id}}</th>
+                <th>{{non_medicated_product.name}}</th>
+                <th>{{non_medicated_product.manufacturer}}</th>
+                <th>{{non_medicated_product.category}}</th>
+                <th>{{non_medicated_product.volume_in_package}}</th>
+                <th>{{non_medicated_product.production_date}}</th>
+                <th>{{non_medicated_product.shelf_life}}</th>
+                <th>{{non_medicated_product.guarantee}}</th>
+                <th>{{non_medicated_product.product.cost}}</th>
+                <th>{{non_medicated_product.product.quantity}}</th>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
