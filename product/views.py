@@ -1,9 +1,7 @@
-from django.shortcuts import render
-from .models import Product, Medicated_product, Non_medicated_product
-from purchase.models import Purchase, Purchase_item
-from .forms import ProductForm, Medicated_productForm, Non_medicated_productForm, Purchase_itemForm, PurchaseForm
+from .forms import *
 from django.views.generic import UpdateView, DeleteView
 from django.shortcuts import render
+from django.db.models import Max, Sum, Min
 
 class PurchaseUpdateView(UpdateView):
     model = Purchase
@@ -13,7 +11,7 @@ class PurchaseUpdateView(UpdateView):
 
 class PurchaseDeleteView(DeleteView):
     model = Purchase
-    success_url = '/purchase/'
+    success_url = '/purchase'
     template_name = 'purchase/delete_purchase.html'
 
 class PurchaseItemUpdateView(UpdateView):
@@ -24,7 +22,7 @@ class PurchaseItemUpdateView(UpdateView):
 
 class PurchaseItemDeleteView(DeleteView):
     model = Purchase_item
-    success_url = '/purchase/'
+    success_url = '/purchase'
     template_name = 'purchase/delete_purchase_item.html'
 
 class ProductUpdateView(UpdateView):
@@ -57,7 +55,7 @@ class NonMedicatedProductUpdateView(UpdateView):
 
 class NonMedicatedProductDeleteView(DeleteView):
     model = Non_medicated_product
-    success_url = '/product/'
+    success_url = '/product'
     template_name = 'product/delete_product.html'
 
 def update_purchase(request):

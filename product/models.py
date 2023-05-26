@@ -34,4 +34,4 @@ class Non_medicated_product(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, primary_key=True, unique=True)
 
     def get_absolute_url(self):
-        return f'/product/'
+        return f'/product'

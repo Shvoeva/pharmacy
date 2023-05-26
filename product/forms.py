@@ -1,6 +1,6 @@
-from .models import Product, Medicated_product, Non_medicated_product
-from purchase.models import Purchase, Purchase_item
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, NumberInput, DateInput, Select
+from .models import *
+from purchase.models import *
+from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, NumberInput, DateInput, Select, modelform_factory
 
 class ProductForm(ModelForm):
     class Meta:
@@ -19,6 +19,10 @@ class ProductForm(ModelForm):
         }
 
 class Medicated_productForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['product'].empty_label = 'Ссылка на товар не выбрана'
+
     class Meta:
         model = Medicated_product
         fields = ['name', 'manufacturer', 'formative_group', 'pharmaceutical_form',
@@ -73,6 +77,10 @@ class Medicated_productForm(ModelForm):
         }
 
 class Non_medicated_productForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['product'].empty_label = 'Ссылка на товар не выбрана'
+
     class Meta:
         model = Non_medicated_product
         fields = ['name', 'manufacturer', 'category', 'volume_in_package',
@@ -138,6 +146,11 @@ class PurchaseForm(ModelForm):
         }
 
 class Purchase_itemForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['product'].empty_label = 'Ссылка на товар не выбрана'
+        self.fields['purchase'].empty_label = 'Ссылка на продажу не выбрана'
+
     class Meta:
         model = Purchase_item
         fields = ['product', 'purchase', 'quantity', 'amount']

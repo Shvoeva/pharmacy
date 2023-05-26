@@ -8,7 +8,7 @@ class Purchase(models.Model):
     amount = models.DecimalField('Сумма к оплате', decimal_places=2, max_digits=15, null=True, blank=0)
 
     def get_absolute_url(self):
-        return f'/purchase/'
+        return f'/purchase'
 
 class Purchase_item(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -17,4 +17,4 @@ class Purchase_item(models.Model):
     amount = models.DecimalField('Стоимость', decimal_places=2, max_digits=15, null=True, blank=0)
 
     def get_absolute_url(self):
-        return f'/purchase/'
+        return f'/purchase'

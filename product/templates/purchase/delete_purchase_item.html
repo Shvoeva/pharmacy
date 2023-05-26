@@ -15,14 +15,14 @@
     <h1 style="text-align">
         <a href="{% url 'product' %}">Лекарственные товары</a>
         <a href="{% url 'product2' %}">Нелекарственные товары</a>
-        <a href="{% url 'purchase' %}">Покупки</a>
+        <a href="{% url 'purchase' %}">Продажи</a>
     </h1>
 </div>
 <div class="container">
-    <h1>Удаление элемента</h1>
+    <h1>Удаление позиции</h1>
     <form method="post">
         {% csrf_token %}
-        <button class="btn btn-success" type="submit">Удалить элемент</button><br><br>
+        <button class="btn btn-success" type="submit">Удалить позицию</button><br><br>
     </form>
 </div>
 </body>
